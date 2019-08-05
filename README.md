@@ -11,3 +11,6 @@ A not so simple plain PHP rest api to manage a phone book
 
 # TODO
 The api specification (or documentation) still needs to be created. If you want you can sniff into the code to find out the actual urls, parameters and payloads.
+
+# Extensibility
+This project has been created with extensibility in mind. If you want to manage another entity just add another directory inside `api`, with an `index.php` file within and add the proper rewrite rules to `.htaccess` file.
