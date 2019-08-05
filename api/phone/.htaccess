@@ -1,0 +1,5 @@
+DirectoryIndex index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteRule ^([0-9a-zA-Z_-]*)/*([0-9a-zA-Z_-]*)$ index.php?field=$1&value=$2 [NC,L]
+</IfModule>
