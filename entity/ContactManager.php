@@ -2,6 +2,7 @@
 namespace Phonebook;
 
 use \PDO;
+use \Exception;
 
 class ContactManager {
     private $conn;
@@ -243,7 +244,7 @@ class ContactManager {
         }
         
         if(!$ok){
-            throw new Exception('Contact could not be deleted');
+            throw new Exception('Id not found or contact could not be deleted');
         }
         
         $result['success'] = true;

@@ -33,7 +33,7 @@ try{
             $output = pb_put($data);
             break;
         case 'DELETE':
-            $output = pb_delete($data);
+            $output = pb_delete($req);
             break;
         default:
             http_response_code(405);
@@ -152,14 +152,16 @@ function pb_put(array $data) : array {
     return $out;
 }
 
-function pb_delete(array $data) : array {
-    if(empty($data)){
+function pb_delete(array $req) : array {
+    $id = '';    
+    
+    if(empty($req)){
         http_response_code(400);
         throw new Exception('Invalid Request');
     }
     
-    if(!empty($data['id'])){
-        $id = (int) $data['id'];
+    if(!empty($req['field'])){
+        $id = (int) $req['field'];
         
         $db = new Database();
         $mgr = new ContactManager($db);
